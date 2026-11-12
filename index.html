@@ -1,0 +1,1419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Justine C. Decillarico - Customer Service & Operations Professional Portfolio" />
+  <title>Justine C. Decillarico | Professional Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #fafafa;
+      --surface: #ffffff;
+      --text: #111827;
+      --muted: #6b7280;
+      --accent: #2563eb;
+      --accent-hover: #1d4ed8;
+      --border: #e5e7eb;
+      --shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
+      --success: #059669;
+      --success-bg: #d1fae5;
+    }
+
+    [data-theme="dark"] {
+      --bg: #0f0f1a;
+      --surface: #1a1a2e;
+      --text: #f0f0f5;
+      --muted: #9ca3af;
+      --accent: #60a5fa;
+      --accent-hover: #93c5fd;
+      --border: #2d2d4a;
+      --shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.4);
+      --success: #34d399;
+      --success-bg: #064e3b;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      padding: 0 1.5rem;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    .container { max-width: 840px; margin: 0 auto; }
+
+    /* Navigation */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.25rem 0;
+      background: var(--bg);
+      border-bottom: 1px solid var(--border);
+      backdrop-filter: saturate(180%) blur(12px);
+      background: color-mix(in srgb, var(--bg) 85%, transparent);
+    }
+    .logo { font-weight: 700; font-size: 1.1rem; text-decoration: none; color: var(--text); }
+    .nav-links a {
+      margin-left: 1.5rem;
+      text-decoration: none;
+      color: var(--muted);
+      font-size: 0.95rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--text); }
+
+    /* Theme Toggle (Fixed Top-Left) */
+    .theme-toggle {
+      position: fixed;
+      top: 1.25rem;
+      left: 1.25rem;
+      z-index: 1000;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      border: 1px solid var(--border);
+      background: color-mix(in srgb, var(--surface) 90%, transparent);
+      backdrop-filter: saturate(180%) blur(12px);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: var(--shadow);
+      transition: all 0.2s;
+    }
+    .theme-toggle:hover { transform: scale(1.08); }
+    .theme-toggle:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 2px;
+    }
+    .theme-toggle svg { width: 22px; height: 22px; stroke: var(--text); }
+    .theme-toggle .sun-icon { display: none; }
+    [data-theme="dark"] .theme-toggle .sun-icon { display: block; }
+    [data-theme="dark"] .theme-toggle .moon-icon { display: none; }
+
+    /* Hero Section */
+    .hero { padding: 4rem 0 2rem; text-align: center; }
+    .hero-profile {
+      margin-bottom: 1.5rem;
+    }
+    .profile-image {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid var(--accent);
+      box-shadow: var(--shadow);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .profile-image:hover {
+      transform: scale(1.02);
+      box-shadow: 0 0 0 4px var(--bg), 0 0 0 7px var(--accent), var(--shadow);
+    }
+    .badge {
+      display: inline-block;
+      background: #dbeafe;
+      color: var(--accent);
+      font-size: 0.85rem;
+      font-weight: 600;
+      padding: 0.25rem 0.75rem;
+      border-radius: 999px;
+      margin-bottom: 1.25rem;
+    }
+    [data-theme="dark"] .badge {
+      background: #1e3a5f;
+      color: var(--accent);
+    }
+    h1 {
+      font-size: clamp(2.2rem, 5vw, 3.2rem);
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      margin-bottom: 1.25rem;
+    }
+    .hero p {
+      font-size: 1.15rem;
+      color: var(--muted);
+      max-width: 600px;
+      margin-bottom: 1.5rem;
+    }
+
+    /* Availability Badges */
+    .availability-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 2rem;
+      font-size: 0.8rem;
+    }
+    .avail-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.35rem 0.75rem;
+      border-radius: 999px;
+      font-weight: 500;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      color: var(--text);
+      transition: all 0.2s;
+    }
+    .avail-badge:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      transform: translateY(-1px);
+    }
+    .avail-badge.success {
+      background: var(--success-bg);
+      border-color: var(--success);
+      color: var(--success);
+    }
+    .avail-badge svg { width: 14px; height: 14px; flex-shrink: 0; }
+
+    .btn-group { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.75rem 1.5rem;
+      border-radius: 8px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.2s;
+      border: none;
+      font-family: inherit;
+      font-size: 0.95rem;
+      cursor: pointer;
+    }
+    .btn-primary { background: var(--accent); color: #fff; }
+    .btn-primary:hover { background: var(--accent-hover); }
+    .btn-secondary {
+      background: var(--surface);
+      color: var(--text);
+      border: 1px solid var(--border);
+    }
+    .btn-secondary:hover { border-color: var(--text); }
+    .btn svg { width: 18px; height: 18px; }
+
+    /* Section Headings */
+    section { padding: 4rem 0; border-top: 1px solid var(--border); }
+    h2 { font-size: 1.5rem; margin-bottom: 2rem; letter-spacing: -0.01em; }
+    .section-subtitle { color: var(--muted); margin-bottom: 1.5rem; max-width: 650px; }
+
+    /* Experience Grid */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.5rem;
+      transition: transform 0.2s, box-shadow 0.2s;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 0.6s ease forwards;
+    }
+    .card:nth-child(1) { animation-delay: 0.1s; }
+    .card:nth-child(2) { animation-delay: 0.2s; }
+    .card:nth-child(3) { animation-delay: 0.3s; }
+    .card:nth-child(4) { animation-delay: 0.4s; }
+
+    @keyframes fadeInUp {
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow);
+    }
+    .tag {
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+      display: block;
+    }
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 1rem;
+      margin-bottom: 0.75rem;
+    }
+    .card h3 { font-size: 1.1rem; font-weight: 600; }
+    .card-period {
+      font-size: 0.85rem;
+      color: var(--muted);
+      white-space: nowrap;
+    }
+    .card-company {
+      color: var(--accent);
+      font-weight: 500;
+      margin-bottom: 0.5rem;
+      display: block;
+    }
+    .card p { color: var(--muted); font-size: 0.95rem; margin-bottom: 1rem; }
+    .card ul { list-style: none; padding-left: 0; }
+    .card li {
+      position: relative;
+      padding-left: 1.25rem;
+      margin-bottom: 0.5rem;
+      font-size: 0.9rem;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+    .card li::before {
+      content: '▸';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-weight: bold;
+    }
+
+    /* Achievements Grid */
+    .achievements-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+    }
+    .achievement-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.5rem;
+      text-align: center;
+      transition: all 0.2s;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 0.6s ease forwards;
+    }
+    .achievement-card:nth-child(1) { animation-delay: 0.1s; }
+    .achievement-card:nth-child(2) { animation-delay: 0.2s; }
+    .achievement-card:nth-child(3) { animation-delay: 0.3s; }
+    .achievement-card:nth-child(4) { animation-delay: 0.4s; }
+    .achievement-card:hover {
+      border-color: var(--accent);
+      box-shadow: var(--shadow);
+      transform: translateY(-2px);
+    }
+    .achievement-value {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--accent);
+      line-height: 1;
+      margin-bottom: 0.25rem;
+    }
+    .achievement-label {
+      font-size: 0.9rem;
+      color: var(--muted);
+      font-weight: 500;
+    }
+
+    /* Growth Visual Card */
+    .achievement-growth {
+      text-align: left;
+      padding: 1.75rem;
+    }
+    .growth-visual { margin-bottom: 1rem; }
+    .growth-bar {
+      height: 12px;
+      background: var(--bg);
+      border-radius: 6px;
+      overflow: hidden;
+      position: relative;
+      margin-bottom: 0.75rem;
+      border: 1px solid var(--border);
+    }
+    .growth-fill {
+      height: 100%;
+      border-radius: 5px;
+      background: linear-gradient(90deg, var(--accent), var(--accent-hover));
+      opacity: 0.3;
+      transition: width 1.2s ease-out 0.3s;
+    }
+    .growth-fill.growth-after {
+      position: absolute;
+      top: 0;
+      left: 0;
+      opacity: 1;
+      animation: growBar 1.5s ease-out 0.5s forwards;
+      width: 0;
+    }
+    @keyframes growBar {
+      to { width: 100%; }
+    }
+    .growth-labels {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.8rem;
+      margin-bottom: 1rem;
+    }
+    .growth-before { color: var(--muted); }
+    .growth-arrow { color: var(--accent); font-weight: 700; font-size: 1.1rem; }
+    .growth-after-text { color: var(--accent); font-weight: 600; }
+    .growth-detail {
+      font-size: 0.85rem;
+      color: var(--muted);
+      line-height: 1.5;
+      margin: 0;
+    }
+    .growth-detail strong { color: var(--accent); }
+
+    /* Reduction Visual Card */
+    .achievement-reduction {
+      text-align: left;
+      padding: 1.75rem;
+    }
+    .reduction-visual { margin-bottom: 1rem; }
+    .reduction-bar {
+      height: 12px;
+      background: var(--bg);
+      border-radius: 6px;
+      overflow: hidden;
+      position: relative;
+      margin-bottom: 0.75rem;
+      border: 1px solid var(--border);
+    }
+    .reduction-fill {
+      height: 100%;
+      border-radius: 5px;
+      transition: width 1.2s ease-out 0.3s;
+    }
+    .reduction-fill.before {
+      background: linear-gradient(90deg, #ef4444, #f87171);
+      opacity: 0.3;
+      width: 100%;
+    }
+    .reduction-fill.after {
+      position: absolute;
+      top: 0;
+      left: 0;
+      background: linear-gradient(90deg, var(--success), #34d399);
+      opacity: 1;
+      width: 100%;
+      animation: shrinkBar 1.5s ease-out 0.5s forwards;
+    }
+    @keyframes shrinkBar {
+      to { width: 25%; }
+    }
+    .reduction-labels {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.8rem;
+      margin-bottom: 1rem;
+    }
+    .reduction-before { color: var(--muted); }
+    .reduction-arrow { color: var(--success); font-weight: 700; font-size: 1.1rem; }
+    .reduction-after { color: var(--success); font-weight: 600; }
+    .reduction-detail {
+      font-size: 0.85rem;
+      color: var(--muted);
+      line-height: 1.5;
+      margin: 0;
+    }
+    .reduction-detail strong { color: var(--success); }
+
+    /* Skills */
+    .skills-list { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 1.5rem; }
+    .skill-pill {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 0.4rem 0.9rem;
+      border-radius: 6px;
+      font-size: 0.9rem;
+      color: var(--text);
+      transition: all 0.2s;
+      cursor: default;
+    }
+    .skill-pill:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      background: color-mix(in srgb, var(--accent) 8%, var(--surface));
+      transform: translateY(-1px);
+    }
+
+    /* Tech Stack Badges */
+    .tech-stack {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 1.5rem;
+    }
+    .tech-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.4rem 0.85rem;
+      border-radius: 6px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      color: var(--text);
+      transition: all 0.2s;
+    }
+    .tech-badge:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      transform: translateY(-1px);
+      box-shadow: var(--shadow);
+    }
+    .tech-badge svg { width: 16px; height: 16px; }
+
+    /* Competencies Grid */
+    .competencies-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1rem;
+    }
+    .competency-category {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.25rem;
+      transition: all 0.2s;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 0.6s ease forwards;
+    }
+    .competency-category:nth-child(1) { animation-delay: 0.1s; }
+    .competency-category:nth-child(2) { animation-delay: 0.2s; }
+    .competency-category:nth-child(3) { animation-delay: 0.3s; }
+    .competency-category:nth-child(4) { animation-delay: 0.4s; }
+    .competency-category:hover {
+      border-color: var(--accent);
+      box-shadow: var(--shadow);
+    }
+    .competency-category h4 {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.75rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .competency-category h4::before {
+      content: '';
+      width: 8px;
+      height: 8px;
+      border-radius: 2px;
+      background: var(--accent);
+    }
+    .competency-list { list-style: none; display: flex; flex-wrap: wrap; gap: 0.4rem; }
+    .competency-list li {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 0.3rem 0.7rem;
+      font-size: 0.85rem;
+      color: var(--muted);
+      transition: all 0.2s;
+    }
+    .competency-list li:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    /* Education & Certifications */
+    .info-list { display: flex; flex-direction: column; gap: 1rem; }
+    .info-item {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.25rem;
+      transition: all 0.2s;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 0.6s ease forwards;
+    }
+    .info-item:nth-child(1) { animation-delay: 0.1s; }
+    .info-item:nth-child(2) { animation-delay: 0.2s; }
+    .info-item:hover {
+      border-color: var(--accent);
+      box-shadow: var(--shadow);
+    }
+    .info-title { font-size: 1rem; font-weight: 600; color: var(--text); margin-bottom: 0.25rem; }
+    .info-subtitle { color: var(--accent); font-weight: 500; margin-bottom: 0.5rem; display: block; }
+    .info-meta { font-size: 0.85rem; color: var(--muted); }
+
+    /* Testimonial Carousel */
+    .testimonial-carousel {
+      position: relative;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    .testimonial-track {
+      overflow: hidden;
+    }
+    .testimonial-slide {
+      display: none;
+      opacity: 0;
+      transform: translateX(20px);
+      transition: all 0.5s ease;
+      text-align: center;
+      padding: 1rem;
+    }
+    .testimonial-slide.active {
+      display: block;
+      opacity: 1;
+      transform: translateX(0);
+    }
+    .testimonial-quote {
+      font-size: 1.1rem;
+      line-height: 1.7;
+      color: var(--text);
+      margin-bottom: 1rem;
+      font-style: italic;
+    }
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.75rem;
+    }
+    .testimonial-avatar {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent), var(--accent-hover));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: 600;
+      font-size: 1.1rem;
+    }
+    .testimonial-info { text-align: left; }
+    .testimonial-name { font-weight: 600; color: var(--text); }
+    .testimonial-role { font-size: 0.85rem; color: var(--muted); }
+    .testimonial-dots {
+      display: flex;
+      justify-content: center;
+      gap: 0.5rem;
+      margin-top: 1.5rem;
+    }
+    .testimonial-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--border);
+      border: none;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .testimonial-dot.active {
+      background: var(--accent);
+      transform: scale(1.2);
+    }
+    .testimonial-dot:hover { background: var(--accent); }
+
+    /* Looking For Section */
+    .looking-for {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin-top: 2rem;
+      text-align: left;
+    }
+    .looking-for h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .looking-for h3::before {
+      content: '';
+      width: 8px;
+      height: 8px;
+      border-radius: 2px;
+      background: var(--success);
+    }
+    .looking-for-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+    }
+    .looking-for-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.5rem;
+    }
+    .looking-for-icon {
+      width: 20px;
+      height: 20px;
+      stroke: var(--success);
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .looking-for-label {
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--muted);
+      margin-bottom: 0.25rem;
+    }
+    .looking-for-value {
+      font-size: 0.9rem;
+      color: var(--text);
+    }
+
+    /* Footer */
+    footer {
+      padding: 4rem 0;
+      border-top: 1px solid var(--border);
+      text-align: center;
+    }
+    footer h2 { font-size: 1.5rem; margin-bottom: 1rem; }
+    footer p { color: var(--muted); margin-bottom: 1.5rem; }
+    .footer-links { display: flex; justify-content: center; gap: 1.5rem; margin-top: 2rem; flex-wrap: wrap; }
+    .footer-links a { color: var(--muted); text-decoration: none; font-size: 0.95rem; font-weight: 500; }
+    .footer-links a:hover { color: var(--text); }
+
+    /* Floating CTA (Fixed Bottom-Right) */
+    .floating-cta {
+      position: fixed;
+      bottom: 1.5rem;
+      right: 1.5rem;
+      z-index: 200;
+      display: none;
+      animation: slideUp 0.4s ease;
+    }
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .floating-cta.visible { display: block; }
+    .floating-cta .btn {
+      box-shadow: var(--shadow);
+      padding: 0.85rem 1.5rem;
+      font-size: 0.9rem;
+      background: color-mix(in srgb, var(--accent) 90%, transparent);
+      backdrop-filter: saturate(180%) blur(12px);
+      border: 1px solid var(--border);
+      transition: all 0.2s;
+    }
+    .floating-cta .btn:hover {
+      background: var(--accent);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px -5px var(--accent);
+    }
+
+    /* Scroll Indicator */
+    .scroll-indicator {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      margin-top: 2rem;
+      color: var(--muted);
+      font-size: 0.8rem;
+      animation: bounce 2s infinite;
+    }
+    .scroll-indicator svg { width: 24px; height: 24px; }
+    @keyframes bounce {
+      0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+      40% { transform: translateY(-8px); }
+      60% { transform: translateY(-4px); }
+    }
+
+    /* Print Styles */
+    @media print {
+      .theme-toggle, .btn-group, footer, .floating-cta, .scroll-indicator, .availability-badges { display: none !important; }
+      .container { max-width: 100%; padding: 0; }
+      section { break-inside: avoid; }
+      body { background: white !important; color: #111827 !important; }
+      a { text-decoration: none; color: inherit; }
+    }
+
+    /* Section Highlight Animation */
+    @keyframes sectionHighlight {
+      0% {
+        box-shadow: inset 0 0 0 1px var(--accent), 0 0 30px -5px color-mix(in srgb, var(--accent) 40%, transparent);
+      }
+      30% {
+        box-shadow: inset 0 0 0 1px var(--accent), 0 0 60px -5px color-mix(in srgb, var(--accent) 20%, transparent);
+      }
+      100% {
+        box-shadow: inset 0 0 0 1px transparent, 0 0 0 0 transparent;
+      }
+    }
+    .section-highlight {
+      animation: sectionHighlight 20s ease-out;
+      border-radius: 12px;
+      position: relative;
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      body { padding: 0 1rem; }
+      nav { flex-wrap: wrap; gap: 1rem; }
+      .nav-links a { margin-left: 1rem; }
+      .hero { padding: 3rem 0 2rem; }
+      section { padding: 3rem 0; }
+      .grid { grid-template-columns: 1fr; }
+      .competencies-grid { grid-template-columns: 1fr; }
+      .achievements-grid { grid-template-columns: repeat(2, 1fr); }
+      .achievement-value { font-size: 1.75rem; }
+      .floating-cta { bottom: 1rem; right: 1rem; left: 1rem; }
+      .floating-cta .btn { width: 100%; justify-content: center; }
+      .looking-for-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Theme Toggle (Fixed Top-Left) -->
+  <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode" title="Toggle theme">
+    <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+    </svg>
+    <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </button>
+
+  <div class="container">
+    <nav>
+      <a href="#" class="logo">Justine C. Decillarico</a>
+      <div class="nav-links">
+        <a href="#experience">Experience</a>
+        <a href="#achievements">Achievements</a>
+        <a href="#skills">Skills</a>
+        <a href="#education">Education</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
+
+    <header class="hero">
+      <div class="hero-profile">
+        <img src="img/picJDC.jpg" alt="Justine C. Decillarico - Professional Photo" class="profile-image" />
+      </div>
+      <span class="badge">Open to Opportunities</span>
+      <h1>Customer Service & Operations Professional</h1>
+      <p>
+        5+ years of experience in technical support, sales operations, collections, and administrative support. Proven ability to resolve complex issues, streamline processes, and deliver excellent service in fast-paced environments.
+      </p>
+
+      <!-- Availability Badges -->
+      <div class="availability-badges">
+        <span class="avail-badge success">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+            <polyline points="22 4 12 14.01 9 11.01"></polyline>
+          </svg>
+          Open to Work
+        </span>
+        <span class="avail-badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"></circle>
+            <line x1="2" y1="12" x2="22" y2="12"></line>
+            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+          </svg>
+          Remote / Hybrid
+        </span>
+        <span class="avail-badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+            <circle cx="12" cy="10" r="3"></circle>
+          </svg>
+          Legazpi City, Albay
+        </span>
+        <span class="avail-badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"></circle>
+            <polyline points="12 6 12 12 16 14"></polyline>
+          </svg>
+          2-Week Notice
+        </span>
+        <span class="avail-badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+          </svg>
+          English / Tagalog
+        </span>
+      </div>
+
+      <div class="btn-group">
+        <a href="#experience" class="btn btn-primary">View Experience</a>
+        <a href="#contact" class="btn btn-secondary">Get in Touch</a>
+        <a href="JDC_Resume_7x9k2m8n.pdf" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+            <polyline points="7 10 12 15 17 10"></polyline>
+            <line x1="12" y1="15" x2="12" y2="3"></line>
+          </svg>
+          View Resume
+        </a>
+      </div>
+
+      <!-- Scroll Indicator -->
+      <div class="scroll-indicator">
+        <span>Scroll to explore</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="6 9 12 15 18 9"></polyline>
+        </svg>
+      </div>
+    </header>
+
+    <section id="experience">
+      <h2>Professional Experience</h2>
+      <div class="grid">
+        <!-- Sales Operations Support -->
+        <article class="card">
+          <span class="tag">Sales Operations</span>
+          <div class="card-header">
+            <h3>Sales Operations Support</h3>
+            <span class="card-period">Mar 2025 – Jan 2026</span>
+          </div>
+          <span class="card-company">eClerx</span>
+          <p>Supported sales representatives with quotation processing and order management.</p>
+          <ul>
+            <li>Supported sales representatives with quotation processing and order management</li>
+            <li>Verified customer and sales information to ensure accurate documentation</li>
+            <li>Coordinated internal requests between departments</li>
+            <li>Assisted with contract renewals and sales documentation</li>
+            <li>Maintained knowledge resources for the team</li>
+            <li>Helped improve turnaround time for operational requests</li>
+          </ul>
+        </article>
+
+        <!-- Collections Associate -->
+        <article class="card">
+          <span class="tag">Collections</span>
+          <div class="card-header">
+            <h3>Collections Associate</h3>
+            <span class="card-period">May 2022 – Feb 2025</span>
+          </div>
+          <span class="card-company">Accenture Inc.</span>
+          <p>Managed customer accounts for UK telecommunications clients.</p>
+          <ul>
+            <li>Managed customer accounts for UK telecommunications clients</li>
+            <li>Processed payment arrangements and account updates</li>
+            <li>Resolved billing concerns while maintaining compliance with company policies</li>
+            <li>Delivered professional customer service while meeting productivity targets</li>
+          </ul>
+        </article>
+
+        <!-- Customer Service, Technical Support & Sales Representative -->
+        <article class="card">
+          <span class="tag">Technical Support & Sales</span>
+          <div class="card-header">
+            <h3>Customer Service, Technical Support & Sales Representative</h3>
+            <span class="card-period">Sep 2019 – Apr 2022</span>
+          </div>
+          <span class="card-company">TeleTech</span>
+          <p>Provided technical support and sales assistance for internet and device issues.</p>
+          <ul>
+            <li>Assisted customers with account, billing, and service inquiries</li>
+            <li>Provided technical support for internet connectivity issues</li>
+            <li>Troubleshot mobile phones, laptops, and desktop computers</li>
+            <li>Resolved customer concerns while delivering excellent customer service</li>
+            <li>Documented customer interactions and maintained accurate records</li>
+          </ul>
+        </article>
+
+        <!-- Business Accountant / QuickBooks Support -->
+        <article class="card">
+          <span class="tag">QuickBooks Support</span>
+          <div class="card-header">
+            <h3>Business Accountant / QuickBooks Support</h3>
+            <span class="card-period">Dec 2017 – Aug 2019</span>
+          </div>
+          <span class="card-company">Convergys</span>
+          <p>Supported customers using QuickBooks Pro, Premier, and Online editions.</p>
+          <ul>
+            <li>Supported customers using QuickBooks Pro and QuickBooks Premier</li>
+            <li>Transitioned to QuickBooks Online chat support</li>
+            <li>Explained software functions and guided customers through troubleshooting steps</li>
+            <li>Communicated clearly with customers and documented concerns</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <!-- Key Achievements Section -->
+    <section id="achievements">
+      <h2>Key Achievements</h2>
+      <p class="section-subtitle">Measurable impact across customer service, operations, and technical support roles.</p>
+      <div class="achievements-grid">
+        <div class="achievement-card">
+          <div class="achievement-value">98%</div>
+          <div class="achievement-label">CSAT Score Maintained</div>
+        </div>
+        <div class="achievement-card">
+          <div class="achievement-value">22%</div>
+          <div class="achievement-label">Avg. Handle Time Reduced</div>
+        </div>
+        <div class="achievement-card achievement-growth">
+          <div class="growth-visual">
+            <div class="growth-bar">
+              <div class="growth-fill" style="width: 30%;"></div>
+              <div class="growth-fill growth-after" style="width: 100%;"></div>
+            </div>
+            <div class="growth-labels">
+              <span class="growth-before">5–8 cases/day</span>
+              <span class="growth-arrow">→</span>
+              <span class="growth-after-text">15–25 cases/day</span>
+            </div>
+          </div>
+          <div class="achievement-label">Case Volume Tripled</div>
+          <p class="growth-detail">Scaled personal throughput by <strong>3×</strong> through workflow optimization & product mastery</p>
+        </div>
+        <div class="achievement-card">
+          <div class="achievement-value">2W → 6D</div>
+          <div class="achievement-label">Onboarding Time Cut</div>
+        </div>
+        <div class="achievement-card achievement-reduction">
+          <div class="reduction-visual">
+            <div class="reduction-bar">
+              <div class="reduction-fill before" style="width: 100%;"></div>
+              <div class="reduction-fill after" style="width: 25%;"></div>
+            </div>
+            <div class="reduction-labels">
+              <span class="reduction-before">High revision rate</span>
+              <span class="reduction-arrow">↓</span>
+              <span class="reduction-after">Minimal bounce-back</span>
+            </div>
+          </div>
+          <div class="achievement-label">Quotation Revisions Minimized</div>
+          <p class="reduction-detail">Cut quote bounce-back by <strong>~75%</strong> via proactive validation & client alignment</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <h2>Core Competencies</h2>
+      <p class="section-subtitle">A blend of customer-facing expertise, technical troubleshooting, and operational coordination skills developed across diverse industries and platforms.</p>
+      <div class="competencies-grid">
+        <div class="competency-category">
+          <h4>Customer Service</h4>
+          <ul class="competency-list">
+            <li>Customer Support</li>
+            <li>Technical Troubleshooting</li>
+            <li>Call Handling</li>
+            <li>Customer Account Management</li>
+            <li>Complaint Resolution</li>
+          </ul>
+        </div>
+        <div class="competency-category">
+          <h4>Sales & Operations</h4>
+          <ul class="competency-list">
+            <li>Order Processing</li>
+            <li>Quotation Processing</li>
+            <li>Contract Renewals</li>
+            <li>Administrative Support</li>
+            <li>Data Entry</li>
+            <li>Documentation</li>
+            <li>Process Coordination</li>
+          </ul>
+        </div>
+        <div class="competency-category">
+          <h4>Technical Skills</h4>
+          <ul class="competency-list">
+            <li>Microsoft Office (Excel, Word, Outlook, PowerPoint)</li>
+            <li>Router Configuration</li>
+            <li>ISP Troubleshooting</li>
+            <li>CRM Systems</li>
+            <li>PHP</li>
+            <li>API Integration</li>
+            <li>Knowledge Base Creation</li>
+          </ul>
+        </div>
+        <div class="competency-category">
+          <h4>Professional Skills</h4>
+          <ul class="competency-list">
+            <li>Communication</li>
+            <li>Problem Solving</li>
+            <li>Time Management</li>
+            <li>Adaptability</li>
+            <li>Team Collaboration</li>
+            <li>Attention to Detail</li>
+            <li>Fast Learner</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Tech Stack Badges -->
+      <div class="tech-stack">
+        <span class="tech-badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"></rect><path d="M8 21h8M12 17v4"></path></svg>
+          Zendesk
+        </span>
+        <span class="tech-badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5"></path></svg>
+          Salesforce
+        </span>
+        <span class="tech-badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+          Intercom
+        </span>
+        <span class="tech-badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+          Jira
+        </span>
+        <span class="tech-badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg>
+          Slack
+        </span>
+        <span class="tech-badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"></rect><path d="M9 9h11M9 14h8M9 19h5"></path></svg>
+          Excel
+        </span>
+        <span class="tech-badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"></rect><path d="M8 21h8M12 17v4"></path></svg>
+          QuickBooks
+        </span>
+        <span class="tech-badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+          PHP / API
+        </span>
+      </div>
+    </section>
+
+    <section id="education">
+      <h2>Education & Certifications</h2>
+      <div class="info-list">
+        <div class="info-item">
+          <span class="info-title">Computer Programming NC IV</span>
+          <span class="info-subtitle">Computer Systems Institute</span>
+          <span class="info-meta">Legazpi City, Albay • 2015 – 2016</span>
+        </div>
+        <div class="info-item">
+          <span class="info-title">Full-Stack Knowledge Base Development</span>
+          <span class="info-subtitle">eClerx – Valpak & Clipp</span>
+          <span class="info-meta">Designed and developed an internal full-stack knowledge base using PHP and Node.js to centralize processes, documentation, and resources. Improved information accessibility and supported faster onboarding and issue resolution for team members.</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials">
+      <h2>Recommendations</h2>
+      <p class="section-subtitle">Feedback from colleagues and managers.</p>
+      <div class="testimonial-carousel">
+        <div class="testimonial-track">
+          <div class="testimonial-slide active">
+            <p class="testimonial-quote">"This is super helpful thank you."</p>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar">DS</div>
+              <div class="testimonial-info">
+                <div class="testimonial-name">Denise Schepps</div>
+                <div class="testimonial-role">Media Sales Consultant</div>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-slide">
+            <p class="testimonial-quote">"I just got off the phone with S****y C*******o, and she wanted to tell me that Justin is awesome! He is so quick and responsive, and he really surprised her with his knowledge and his ability to get her exactly what she needed. She said, 'there are sales reps who have been here a really long time who don't know how to do what he did!' Way to go, Justin! Looking forward to many more songs of praise for you!"</p>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar">RO</div>
+              <div class="testimonial-info">
+                <div class="testimonial-name">Raquel Ortiz</div>
+                <div class="testimonial-role">Manager, Sales Production Operations</div>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-slide">
+            <p class="testimonial-quote">"Good Job Justin.. Appreciate it."</p>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar">UN</div>
+              <div class="testimonial-info">
+                <div class="testimonial-name">Unmesh Nair</div>
+                <div class="testimonial-role">Site Director</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-dots" id="testimonialDots">
+          <button class="testimonial-dot active" data-index="0" aria-label="Testimonial 1"></button>
+          <button class="testimonial-dot" data-index="1" aria-label="Testimonial 2"></button>
+          <button class="testimonial-dot" data-index="2" aria-label="Testimonial 3"></button>
+        </div>
+      </div>
+    </section>
+
+    <footer id="contact">
+      <h2>Let's connect.</h2>
+      <p>Have an opportunity in mind or just want to say hello? Drop me a message.</p>
+      <a href="mailto:jdecillarico0612@gmail.com" class="btn btn-primary">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="4" width="20" height="16" rx="2"></rect>
+          <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+        </svg>
+        jdecillarico0612@gmail.com
+      </a>
+
+      <!-- What I'm Looking For -->
+      <div class="looking-for">
+        <h3>What I'm Looking For</h3>
+        <div class="looking-for-grid">
+          <div class="looking-for-item">
+            <svg class="looking-for-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+              <polyline points="22 4 12 14.01 9 11.01"></polyline>
+            </svg>
+            <div>
+              <div class="looking-for-label">Role</div>
+              <div class="looking-for-value">Customer Success / Sales Operations / Technical Support / Admin Support / Executive Support</div>
+            </div>
+          </div>
+          <div class="looking-for-item">
+            <svg class="looking-for-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+            </svg>
+            <div>
+              <div class="looking-for-label">Environment</div>
+              <div class="looking-for-value">Remote-first or Hybrid (Philippines / APAC / US / UK timezones)</div>
+            </div>
+          </div>
+          <div class="looking-for-item">
+            <svg class="looking-for-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"></circle>
+              <polyline points="12 6 12 12 16 14"></polyline>
+            </svg>
+            <div>
+              <div class="looking-for-label">Availability</div>
+              <div class="looking-for-value">1–2 week notice period</div>
+            </div>
+          </div>
+          <div class="looking-for-item">
+            <svg class="looking-for-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+              <circle cx="9" cy="7" r="4"></circle>
+              <path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"></path>
+            </svg>
+            <div>
+              <div class="looking-for-label">Strengths</div>
+              <div class="looking-for-value">Scaling support processes, CRM optimization, cross-functional coordination</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-links">
+        <a href="tel:+639514670828">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:16px;height:16px;margin-right:6px;vertical-align:middle;">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+          </svg>
+          +63 951 467 0828
+        </a>
+        <a href="https://teams.microsoft.com/l/chat/0/0?users=jdecillarico0612@gmail.com" target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:16px;height:16px;margin-right:6px;vertical-align:middle;">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+            <circle cx="12" cy="7" r="4"></circle>
+          </svg>
+          MS Teams
+        </a>
+        <a href="https://www.linkedin.com/in/justine-decillarico/" target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:16px;height:16px;margin-right:6px;vertical-align:middle;">
+            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+            <rect x="2" y="9" width="4" height="12"></rect>
+            <circle cx="4" cy="4" r="2"></circle>
+          </svg>
+          LinkedIn
+        </a>
+        <a href="https://github.com/jstndcllrc" target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:16px;height:16px;margin-right:6px;vertical-align:middle;">
+            <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+          </svg>
+          GitHub
+        </a>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Floating CTA -->
+  <div class="floating-cta" id="floatingCta">
+    <a href="#contact" class="btn btn-primary">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="2" y="4" width="20" height="16" rx="2"></rect>
+        <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+      </svg>
+      Contact Me
+    </a>
+  </div>
+
+  <script>
+    // Theme Management
+    const themeToggle = document.getElementById('themeToggle');
+    const html = document.documentElement;
+
+    function initTheme() {
+      const saved = localStorage.getItem('theme');
+      if (saved) {
+        html.setAttribute('data-theme', saved);
+      } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        html.setAttribute('data-theme', 'dark');
+      }
+    }
+
+    function toggleTheme() {
+      const current = html.getAttribute('data-theme');
+      const next = current === 'dark' ? 'light' : 'dark';
+      html.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+    }
+
+    themeToggle.addEventListener('click', toggleTheme);
+    themeToggle.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        toggleTheme();
+      }
+    });
+
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+      if (!localStorage.getItem('theme')) {
+        html.setAttribute('data-theme', e.matches ? 'dark' : 'light');
+      }
+    });
+
+    initTheme();
+
+    // Smooth scroll with section highlight
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        const targetId = this.getAttribute('href');
+        if (targetId === '#') return;
+        const target = document.querySelector(targetId);
+        if (target) {
+          e.preventDefault();
+          document.querySelectorAll('.section-highlight').forEach(el => el.classList.remove('section-highlight'));
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          setTimeout(() => {
+            target.classList.add('section-highlight');
+            setTimeout(() => target.classList.remove('section-highlight'), 1200);
+          }, 400);
+        }
+      });
+    });
+
+    // Testimonial Carousel - Dynamic timing based on content length
+    const slides = document.querySelectorAll('.testimonial-slide');
+    const dots = document.querySelectorAll('.testimonial-dot');
+    let currentSlide = 0;
+    let slideTimeout;
+
+    // Calculate display duration based on word count (avg reading speed: 200 wpm)
+    function getSlideDuration(slide) {
+      const quote = slide.querySelector('.testimonial-quote');
+      if (!quote) return 5000;
+      const wordCount = quote.textContent.trim().split(/\s+/).length;
+      const readingTimeMs = (wordCount / 200) * 60 * 1000; // ms at 200 wpm
+      const minDuration = 4000;  // minimum 4 seconds
+      const maxDuration = 15000; // maximum 15 seconds
+      const buffer = 1500;       // extra buffer for comprehension
+      return Math.min(Math.max(readingTimeMs + buffer, minDuration), maxDuration);
+    }
+
+    function showSlide(index) {
+      slides.forEach((slide, i) => {
+        slide.classList.toggle('active', i === index);
+      });
+      dots.forEach((dot, i) => {
+        dot.classList.toggle('active', i === index);
+      });
+      currentSlide = index;
+    }
+
+    function nextSlide() {
+      showSlide((currentSlide + 1) % slides.length);
+      scheduleNext();
+    }
+
+    function scheduleNext() {
+      clearTimeout(slideTimeout);
+      const duration = getSlideDuration(slides[currentSlide]);
+      slideTimeout = setTimeout(nextSlide, duration);
+    }
+
+    function startCarousel() {
+      scheduleNext();
+    }
+
+    function stopCarousel() {
+      clearTimeout(slideTimeout);
+    }
+
+    dots.forEach(dot => {
+      dot.addEventListener('click', () => {
+        stopCarousel();
+        showSlide(parseInt(dot.dataset.index));
+        startCarousel();
+      });
+    });
+
+    // Pause on hover
+    const carousel = document.querySelector('.testimonial-carousel');
+    carousel.addEventListener('mouseenter', stopCarousel);
+    carousel.addEventListener('mouseleave', startCarousel);
+
+    startCarousel();
+
+    // Floating CTA visibility - always visible except near footer
+    const floatingCta = document.getElementById('floatingCta');
+    const footer = document.querySelector('footer');
+
+    function checkFloatingCta() {
+      const footerTop = footer.getBoundingClientRect().top;
+      const viewportHeight = window.innerHeight;
+
+      // Show when footer is not yet visible in viewport
+      if (footerTop > viewportHeight) {
+        floatingCta.classList.add('visible');
+      } else {
+        floatingCta.classList.remove('visible');
+      }
+    }
+
+    window.addEventListener('scroll', checkFloatingCta, { passive: true });
+    checkFloatingCta();
+
+    // Skill pill click animation
+    document.querySelectorAll('.skill-pill').forEach(pill => {
+      pill.addEventListener('click', () => {
+        pill.style.transform = 'scale(0.95)';
+        setTimeout(() => pill.style.transform = '', 150);
+      });
+    });
+  </script>
+</body>
+</html>
